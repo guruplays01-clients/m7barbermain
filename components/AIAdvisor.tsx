@@ -30,7 +30,8 @@ const AIAdvisor: React.FC<AIAdvisorProps> = ({ onClose }) => {
     setIsLoading(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+      // Use the injected environment variable directly
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: [
@@ -48,6 +49,7 @@ const AIAdvisor: React.FC<AIAdvisorProps> = ({ onClose }) => {
       const aiResponse = response.text || "I'm sorry, I couldn't process that. Try asking about a specific fade or beard style!";
       setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
     } catch (error) {
+      console.error("AI Error:", error);
       setMessages(prev => [...prev, { role: 'assistant', content: "Oops, my style books are a bit dusty. Please try asking again in a moment!" }]);
     } finally {
       setIsLoading(false);
