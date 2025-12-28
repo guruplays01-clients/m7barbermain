@@ -34,14 +34,14 @@ const Testimonials: React.FC = () => {
         ))}
       </div>
       
-      <div className="mt-16 bg-[#D4AF37] p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between">
+      <div className="mt-16 bg-[#D4AF37] p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between shadow-xl">
         <div className="text-black mb-6 md:mb-0">
           <h4 className="text-2xl font-serif font-bold">Join the ranks of the best-groomed.</h4>
           <p className="font-medium opacity-80 text-lg">Book your first experience today and get a complimentary styling consultation.</p>
         </div>
         <button 
           onClick={() => document.getElementById('contact')?.scrollIntoView()}
-          className="px-8 py-3 bg-black text-white rounded-full font-bold hover:scale-105 transition-transform"
+          className="px-8 py-3 bg-black text-white border border-transparent rounded-full font-bold hover:bg-neutral-900 hover:text-[#D4AF37] hover:border-[#D4AF37] hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
         >
           BOOK NOW
         </button>

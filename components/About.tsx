@@ -13,14 +13,16 @@ const About: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="relative">
-          <div className="absolute -top-4 -left-4 w-64 h-64 border-2 gold-border -z-10 rounded-2xl"></div>
-          <img 
-            src="https://images.unsplash.com/photo-1599351431247-f5094037950d?auto=format&fit=crop&q=80&w=1000" 
-            alt="M7 Barber Interior" 
-            className="rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-          />
-          <div className="absolute -bottom-8 -right-8 bg-black p-8 rounded-2xl border border-neutral-800 hidden md:block">
+        <div className="relative group">
+          <div className="absolute -top-4 -left-4 w-64 h-64 border-2 border-[#D4AF37]/30 -z-10 rounded-2xl group-hover:-top-6 group-hover:-left-6 transition-all duration-500"></div>
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1599351431247-f5094037950d?auto=format&fit=crop&q=80&w=1000" 
+              alt="M7 Barber Interior" 
+              className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+          <div className="absolute -bottom-8 -right-8 bg-black p-8 rounded-2xl border border-neutral-800 hidden md:block shadow-2xl group-hover:-bottom-10 group-hover:-right-10 transition-all duration-500">
             <p className="font-serif italic text-2xl gold-text">"Precision is our signature."</p>
           </div>
         </div>
@@ -35,18 +37,17 @@ const About: React.FC = () => {
           </p>
           <p className="text-neutral-400 text-lg leading-relaxed mb-10">
             Whether you're looking for a sharp skin fade, a clean beard sculpt, or a traditional hot towel shave, 
-            we treat every service as a work of art. We use only premium products and tools to provide a professional, 
-            comfortable, and high-end grooming experience.
+            we treat every service as a work of art.
           </p>
 
           <div className="grid grid-cols-2 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="flex items-center space-x-4">
-                <div className="p-3 bg-neutral-800 rounded-lg">
+              <div key={index} className="flex items-center space-x-4 group cursor-default">
+                <div className="p-3 bg-neutral-800 rounded-lg group-hover:bg-[#D4AF37]/10 transition-colors">
                   {stat.icon}
                 </div>
                 <div>
-                  <div className="text-2xl font-bold">{stat.value}</div>
+                  <div className="text-2xl font-bold group-hover:gold-text transition-colors">{stat.value}</div>
                   <div className="text-neutral-500 text-sm uppercase tracking-wider">{stat.label}</div>
                 </div>
               </div>

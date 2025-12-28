@@ -50,12 +50,10 @@ const AIAdvisor: React.FC<AIAdvisorProps> = ({ onClose }) => {
     const userMessage = retryMessage || input.trim();
     if (!userMessage || isLoading) return;
 
-    // If it's not a retry, clear input and add user message to chat
     if (!retryMessage) {
       setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
       setInput('');
     } else {
-      // If it is a retry, remove the previous error message if it exists
       setMessages(prev => {
         const last = prev[prev.length - 1];
         if (last && last.isError) {
@@ -69,10 +67,6 @@ const AIAdvisor: React.FC<AIAdvisorProps> = ({ onClose }) => {
     setIsLoading(true);
 
     try {
-      if (!process.env.API_KEY) {
-        throw new Error("API Key is missing from configuration.");
-      }
-
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
@@ -119,7 +113,10 @@ const AIAdvisor: React.FC<AIAdvisorProps> = ({ onClose }) => {
               <p className="text-xs gold-text uppercase tracking-widest font-bold">Powered by Gemini AI</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-neutral-900 rounded-full transition-colors">
+          <button 
+            onClick={onClose} 
+            className="p-2 hover:bg-neutral-900 rounded-full transition-all hover:rotate-90 hover:text-[#D4AF37]"
+          >
             <X className="w-6 h-6" />
           </button>
         </div>
@@ -151,7 +148,7 @@ const AIAdvisor: React.FC<AIAdvisorProps> = ({ onClose }) => {
                   {msg.isError && (
                     <button 
                       onClick={() => handleSend(lastUserMessage)}
-                      className="flex items-center space-x-2 text-xs font-bold text-[#D4AF37] hover:text-[#f0c74d] transition-colors bg-neutral-900/50 px-3 py-1.5 rounded-full border border-[#D4AF37]/30"
+                      className="flex items-center space-x-2 text-xs font-bold text-[#D4AF37] hover:text-[#f0c74d] transition-all bg-neutral-900/50 px-3 py-1.5 rounded-full border border-[#D4AF37]/30 hover:shadow-[0_0_10px_rgba(212,175,55,0.2)] active:scale-95"
                     >
                       <RefreshCcw className="w-3 h-3" />
                       <span>Retry Advice</span>
@@ -189,7 +186,7 @@ const AIAdvisor: React.FC<AIAdvisorProps> = ({ onClose }) => {
             <button 
               onClick={() => handleSend()}
               disabled={isLoading || !input.trim()}
-              className="p-3 gold-bg text-black rounded-xl hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 transition-all shadow-lg"
+              className="p-3 gold-bg text-black rounded-xl hover:scale-105 hover:brightness-110 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 transition-all shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]"
               title="Send style request"
             >
               <Zap className="w-5 h-5 fill-current" />

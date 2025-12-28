@@ -36,13 +36,13 @@ const Hero: React.FC<HeroProps> = ({ onBook }) => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button 
             onClick={onBook}
-            className="w-full sm:w-auto px-10 py-4 gold-bg text-black font-bold text-lg rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+            className="w-full sm:w-auto px-10 py-4 gold-bg text-black font-bold text-lg rounded-full hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:brightness-110 active:scale-95 transition-all duration-300"
           >
             BOOK AN APPOINTMENT
           </button>
           <a 
             href="#services"
-            className="w-full sm:w-auto px-10 py-4 bg-transparent border-2 border-white/20 text-white font-bold text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300"
+            className="w-full sm:w-auto px-10 py-4 bg-transparent border-2 border-white/20 text-white font-bold text-lg rounded-full hover:border-[#D4AF37] hover:text-[#D4AF37] hover:bg-black/20 transition-all duration-300"
           >
             OUR SERVICES
           </a>

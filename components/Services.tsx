@@ -24,10 +24,10 @@ const Services: React.FC = () => {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full border transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full border transition-all duration-300 transform hover:-translate-y-1 ${
                 filter === cat 
-                  ? 'gold-bg text-black border-[#D4AF37] font-bold' 
-                  : 'border-neutral-700 text-neutral-400 hover:border-[#D4AF37] hover:text-[#D4AF37]'
+                  ? 'gold-bg text-black border-[#D4AF37] font-bold shadow-[0_5px_15px_rgba(212,175,55,0.3)]' 
+                  : 'border-neutral-700 text-neutral-400 hover:border-[#D4AF37] hover:text-[#D4AF37] hover:shadow-md'
               }`}
             >
               {cat}
@@ -40,7 +40,7 @@ const Services: React.FC = () => {
         {filteredServices.map((service) => (
           <div 
             key={service.id} 
-            className="group relative bg-neutral-900 border border-neutral-800 p-8 rounded-2xl hover:border-[#D4AF37]/50 transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+            className="group relative bg-neutral-900 border border-neutral-800 p-8 rounded-2xl hover:border-[#D4AF37]/50 transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] cursor-default"
           >
             <div className="flex justify-between items-start mb-4">
               <h4 className="text-2xl font-serif font-bold group-hover:text-[#D4AF37] transition-colors">{service.name}</h4>
@@ -73,7 +73,7 @@ const Services: React.FC = () => {
         <p className="text-neutral-500 italic mb-6">Need something bespoke? Ask your barber for custom packages.</p>
         <button 
           onClick={() => document.getElementById('contact')?.scrollIntoView()}
-          className="px-12 py-4 gold-bg text-black font-bold rounded-full hover:scale-110 transition-transform duration-300"
+          className="px-12 py-4 gold-bg text-black font-bold rounded-full hover:scale-105 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:brightness-110 active:scale-95 transition-all duration-300"
         >
           SECURE YOUR SLOT
         </button>

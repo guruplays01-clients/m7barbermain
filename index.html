@@ -4,58 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M7 Barber Kippax | Premium Grooming Experience</title>
+    <title>M7 Barber Kippax | Premium Grooming & Style</title>
+    
+    <!-- Meta Tags for SEO & Social Sharing -->
+    <meta name="description" content="Premium barbering services in Kippax. Master fades, beard sculpting, and traditional shaves.">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2821/2821012.png">
+
+    <!-- Styles & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Babel Standalone for in-browser JSX/TSX transformation -->
+    
+    <!-- Babel for in-browser TSX transformation (Enables no-build deployment) -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <style>
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --gold: #D4AF37;
+            --gold-hover: #f0c74d;
         }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
             color: #ffffff;
+            overflow-x: hidden;
         }
-        h1, h2, h3, .font-serif {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .gold-text { color: var(--gold); }
+        .gold-bg { background-color: var(--gold); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { 
+            background: var(--gold); 
+            border-radius: 10px; 
         }
-        .gold-text {
-            color: #D4AF37;
-        }
-        .gold-bg {
-            background-color: #D4AF37;
-        }
-        .gold-border {
-            border-color: #D4AF37;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D4AF37;
-            border-radius: 4px;
-        }
+
+        /* Smooth Transitions */
+        .transition-all { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        /* Utility for AI Chat */
+        .scrollbar-thin::-webkit-scrollbar { width: 4px; }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-  }
-}
-</script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react-dom": "https://esm.sh/react-dom@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+      }
+    }
+    </script>
 </head>
 <body>
     <div id="root"></div>
-    <!-- Load the main entry point with Babel and ESM support -->
+    <!-- Entry point -->
     <script type="text/babel" data-type="module" src="index.tsx"></script>
 </body>
 </html>
